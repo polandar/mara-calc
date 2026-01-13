@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marathon Time Predictor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<h1>Marathon Time Predictor</h1>
+
+<p class="intro">
+    Marathon pacing is tricky. Traditional calculators, like the Riegel formula, work reasonably well for short and medium distances, but research has shown they often <strong>underestimate marathon times by 10 minutes or more</strong> for many runners.  
+    <br>
+    In 2014, researcher <strong>Vickers</strong> collected survey data from <strong>2,497 runners</strong> to understand which factors truly affect race performance. The results, later published in <a href="https://link.springer.com/article/10.1186/s13102-016-0052-y" target="_blank">BMC Sports Science, Medicine and Rehabilitation</a>, suggest that pacing mistakes are a common reason runners hit “the wall” in marathons.  
+    <br>
+    Use this form to enter your recent race times and weekly mileage. The calculator will use Vickers’s adjusted method to provide a <strong>more accurate marathon time prediction</strong>, helping you plan your race strategy more confidently.  
+<br>
+    Enter either <strong>one race</strong> or <strong>two races</strong>.
+    If entering two races, the <strong>first race must be the longer distance</strong>.
+    Times should be in <code>hh:mm:ss</code> format.
+  </p>
+
+<div class="prediction-panel">
+    <div class="prediction-label">Predicted Marathon Time</div>
+    <div id="predictionTime" class="prediction-time">0:00:00</div>
+  </div>
+
+<form id="predictorForm">
+
+  <fieldset>
+    <legend>Weekly Mileage</legend>
+    <label>
+      Miles per week:
+      <input type="number" id="mileage" value="0" min="0" />
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Race 1 (required)</legend>
+
+    <label>
+      Time:
+      <input type="text" id="time1" placeholder="hh:mm:ss" />
+    </label>
+
+    <div class="radio-group">
+      <strong>Distance</strong>
+      <label><input type="radio" name="dist1" value="0" checked /> 5K</label>
+      <label><input type="radio" name="dist1" value="1" /> 5 Miles</label>
+      <label><input type="radio" name="dist1" value="2" /> 10K</label>
+      <label><input type="radio" name="dist1" value="3" /> 10 Miles</label>
+      <label><input type="radio" name="dist1" value="4" /> Half Marathon</label>
+    </div>
+
+    <div class="radio-group">
+      <strong>Conditions</strong>
+      <label><input type="radio" name="cond1" value="0" checked /> Average</label>
+      <label><input type="radio" name="cond1" value="1" /> Fast (cool, flat, easy conditions) </label>
+      <label><input type="radio" name="cond1" value="2" /> Difficult (hot, humid, hilly) </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Race 2 (optional)</legend>
+
+    <label>
+      Time:
+      <input type="text" id="time2" placeholder="hh:mm:ss" />
+    </label>
+
+    <div class="radio-group">
+      <strong>Distance</strong>
+      <label><input type="radio" name="dist2" value="0" /> 5K</label>
+      <label><input type="radio" name="dist2" value="1" /> 5 Miles</label>
+      <label><input type="radio" name="dist2" value="2" /> 10K</label>
+      <label><input type="radio" name="dist2" value="3" /> 10 Miles</label>
+      <label><input type="radio" name="dist2" value="4" /> Half Marathon</label>
+    </div>
+
+    <div class="radio-group">
+        <strong>Conditions</strong>
+        <label><input type="radio" name="cond2" value="0" /> Average</label>
+        <label><input type="radio" name="cond2" value="1" /> Fast (cool, flat, easy conditions) </label>
+        <label><input type="radio" name="cond2" value="2" /> Difficult (hot, humid, hilly) </label>
+      </div>
+  </fieldset>
+
+  <button type="submit">Predict Marathon Time</button>
+</form>
+
+<script src="predictor.js"></script>
+</body>
+</html>
